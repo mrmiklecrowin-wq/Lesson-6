@@ -6,9 +6,11 @@ size_t output_result (size_t number)
 	size_t result = 0;
 	if( number == 1 )
 	{
+	std::cout<< "0";	
 	return 0;
 	}
 	else if( number == 2 ){	
+	std::cout<< "1";			
 	return 1;
 	}
 	else{	
@@ -16,18 +18,23 @@ size_t output_result (size_t number)
 	}
 }
 
+
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
+
 	size_t number = 0;
+	
 	
 	std::cout << " Введите число: ";
 	std::cin >> number;
 	
-	std::cout<< " Числа Фибоначчи: ";	
+	std::cout<< " Числа Фибоначчи: ";
+	output_result(number);
 	
+
 	for(int i = 1;i < number && number > 2;i++){
 	int result = output_result(i);	
 	std::cout << result << " ";	
