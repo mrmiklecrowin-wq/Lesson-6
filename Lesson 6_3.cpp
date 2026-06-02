@@ -1,50 +1,37 @@
 #include <iostream>
 #include <windows.h>
 
-size_t output_result (int number)
+size_t output_result (size_t number)
 {
-	int i = 0;
-	size_t first_number = 0;
-	size_t second_number = 1;
 	size_t result = 0;
-	
-	if ( number > 2 ){	
-	std::cout<< " Числа Фибоначчи: ";	
-	while ( i < number - 2 && number > 2 )
+	if( number == 1 )
 	{
-		result = first_number + second_number;
-		first_number = second_number;
-		second_number = result;	
-		i++;
-	}
-	std::cout << result;		
-	}
-	else if( number == 2 ){
-		std::cout<< " Числа Фибоначчи: " << first_number << " " << second_number;
-	}
-	else {
-		std::cout<< " Числа Фибоначчи: " << first_number;
-	}
-
 	return 0;
+	}
+	else if( number == 2 ){	
+	return 1;
+	}
+	else{	
+	return output_result(number - 1) + output_result(number - 2) ;
+	}
 }
-
 
 int main()
 {
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 	
-	
-	int number = 0;
-	size_t result = 0;
-	
+	size_t number = 0;
 	
 	std::cout << " Введите число: ";
 	std::cin >> number;
 	
-	output_result(number);
+	std::cout<< " Числа Фибоначчи: ";	
 	
+	for(int i = 1;i < number && number > 2;i++){
+	int result = output_result(i);	
+	std::cout << result << " ";	
+	}	
 	
 	return 0;
 }
